@@ -1,42 +1,91 @@
-PS C:\xampp\htdocs\clinic_rdv> git remote -v
->>
-origin  https://github.com/eya1610/clinic_rdv.git (fetch)
-origin  https://github.com/eya1610/clinic_rdv.git (push)
-PS C:\xampp\htdocs\clinic_rdv> git push -u origin main
-remote: Repository not found.
-fatal: repository 'https://github.com/eya1610/clinic_rdv.git/' not found
-PS C:\xampp\htdocs\clinic_rdv> git remote set-url origin https://github.com/eya1610/medicare.git
-PS C:\xampp\htdocs\clinic_rdv> git push -u origin main
-fatal: unable to connect to cache daemon: Unknown error
-Enumerating objects: 84, done.
-Counting objects: 100% (84/84), done.
-Delta compression using up to 8 threads
-Compressing objects: 100% (81/81), done.
-Writing objects: 100% (84/84), 68.18 KiB | 1.34 MiB/s, done.
-Total 84 (delta 36), reused 0 (delta 0), pack-reused 0 (from 0)
-remote: Resolving deltas: 100% (36/36), done.
-To https://github.com/eya1610/medicare.git
- * [new branch]      main -> main
-branch 'main' set up to track 'origin/main'.
-PS C:\xampp\htdocs\clinic_rdv>
+## 📋 Description
+
+**MediCare** est une application web complète de gestion des rendez-vous médicaux. Elle permet aux administrateurs, médecins et patients de gérer efficacement les consultations, les avis et les réclamations dans un environnement sécurisé et intuitif.
+
+L'application a été développée avec **PHP 8.2**, **MySQL** et **PDO** pour une sécurité optimale contre les injections SQL.
+
+---
+
+## ✨ Fonctionnalités
+
+### 👑 Administrateur
+- **Tableau de bord** : Vue d'ensemble de l'activité avec indicateurs KPI
+- **Gestion des patients** : Ajouter, modifier, supprimer et rechercher
+- **Gestion des médecins** : Ajouter, modifier, supprimer et rechercher
+- **Gestion des rendez-vous** : CRUD complet avec filtres avancés
+- **Statistiques** : Graphiques et indicateurs de performance
+- **Calendrier** : Vue mensuelle interactive
+- **Avis** : Modération des avis patients
+- **Réclamations** : Traitement et suivi des réclamations
+- **Export PDF** : Génération de rapports
+
+### 👨‍⚕️ Médecin
+- **Tableau de bord** : Vue personnalisée
+- **Agenda** : Calendrier interactif
+- **Gestion des rendez-vous** : Consultation et modification
+- **Fiche patient** : Historique et notes médicales
+- **Export PDF** : Liste des rendez-vous
+
+### 🧑 Patient
+- **Tableau de bord** : Vue personnalisée
+- **Prendre un rendez-vous** : Sélection du médecin et créneau
+- **Mes rendez-vous** : Consultation et annulation
+- **Avis** : Donner et gérer ses avis
+- **Réclamations** : Soumettre et suivre
+
+---
+
+## 🛠️ Technologies utilisées
+
+| Technologie | Version | Utilisation |
+|-------------|---------|-------------|
+| **PHP** | 8.2 | Backend, logique métier |
+| **MySQL** | 8.0 | Base de données |
+| **PDO** | - | Connexion sécurisée à la BD |
+| **HTML5** | - | Structure des pages |
+| **CSS3** | - | Style et design responsive |
+| **JavaScript** | ES6 | Interactivité et AJAX |
+| **Chart.js** | 4.4 | Graphiques statistiques |
+| **Dompdf** | 2.0 | Export PDF |
+
+---
+
+## 🗂️ Structure du projet
 medicare/
 ├── admin/ # Interface administrateur
+
 │ ├── dashboard.php
+
 │ ├── stats.php
+
 │ ├── calendar.php
+
 │ ├── patients/
+
 │ │ ├── index.php
+
 │ │ ├── ajouter.php
+
 │ │ ├── modifier.php
+
 │ │ └── supprimer.php
+
 │ ├── medecins/
+
 │ │ ├── index.php
+
 │ │ ├── ajouter.php
+
 │ │ ├── modifier.php
+
 │ │ └── supprimer.php
+
 │ ├── rdv/
+
 │ │ ├── index.php
+
 │ │ ├── ajouter.php
+
 │ │ ├── modifier.php
 │ │ └── supprimer.php
 │ ├── avis/
