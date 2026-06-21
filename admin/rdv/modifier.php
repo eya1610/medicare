@@ -1,0 +1,69 @@
+<?php
+session_start();
+if(!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
+    header('Location: ../../login.php');
+    exit();
+}
+
+require_once '../../config/database.php';
+require_once '../../includes/functions.php';
+$pdo = getPDO();
+$id = $_GET['id'] ?? 0;
+
+$stmt = $pdo->prepare("SELECT * FROM rendez_vous WHERE id = ?");
+$stmt->execute([$id]);
+$rdv = $stmt->fetch();
+
+if(!$rdv) {
+    header('Location: index.php');
+    exit();
+}
+
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $date_rdv = $_POST['date_rdv'];
+    $heure_rdv = $_POST['heure_rdv'];
+    $motif = $_POST['motif'];
+    $statut = $_POST['statut'];
+    
+    $stmt = $pdo->prepare("UPDATE rendez_vous SET date_rdv = ?, heure_rdv = ?, motif = ?, statut = ? WHERE id = ?");
+    $stmt->execute([$date_rdv, $heure_rdv, $motif, $statut, $id]);
+    
+    header('Location: index.php?modifie=1');
+    exit();
+}
+
+include '../../includes/header.php';
+include '../../includes/sidebar.php';
+?>
+
+<div class="main-content">
+    <h1>✏️ Modifier le rendez-vous</h1>
+    
+    <form method="POST" class="table-container" style="padding: 24px;">
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" name="date_rdv" value="<?= $rdv['date_rdv'] ?>" required>
+        </div>
+        <div class="form-group">
+            <label>Heure</label>
+            <input type="time" name="heure_rdv" value="<?= $rdv['heure_rdv'] ?>" required>
+        </div>
+        <div class="form-group">
+            <label>Motif</label>
+            <input type="text" name="motif" value="<?= htmlspecialchars($rdv['motif']) ?>" required>
+        </div>
+        <div class="form-group">
+            <label>Statut</label>
+            <select name="statut">
+                <option value="en_attente" <?= $rdv['statut'] == 'en_attente' ? 'selected' : '' ?>>En attente</option>
+                <option value="confirme" <?= $rdv['statut'] == 'confirme' ? 'selected' : '' ?>>Confirmé</option>
+                <option value="termine" <?= $rdv['statut'] == 'termine' ? 'selected' : '' ?>>Terminé</option>
+                <option value="annule" <?= $rdv['statut'] == 'annule' ? 'selected' : '' ?>>Annulé</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">💾 Enregistrer</button>
+        <a href="index.php" class="btn" style="background:#EBEBEB;">Retour</a>
+    </form>
+</div>
+
+<?php include '../../includes/footer.php'; ?>
