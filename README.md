@@ -87,68 +87,131 @@ medicare/
 │ │ ├── ajouter.php
 
 │ │ ├── modifier.php
+
 │ │ └── supprimer.php
+
 │ ├── avis/
+
 │ │ ├── index.php
+
 │ │ ├── ajouter.php
+
 │ │ ├── modifier.php
+
 │ │ └── supprimer.php
+
 │ ├── reclamations/
+
 │ │ ├── index.php
+
 │ │ ├── ajouter.php
+
 │ │ ├── modifier.php
+
 │ │ ├── supprimer.php
+
 │ │ └── traiter.php
+
 │ └── export/
+
 │ └── export_pdf.php
+
 ├── medecin/ # Interface médecin
+
 │ ├── dashboard.php
+
 │ ├── rdv/
+
 │ │ ├── index.php
+
 │ │ ├── modifier.php
+
 │ │ └── export_pdf.php
+
 │ └── compte/
+
 │ ├── profil.php
+
 │ ├── modifier.php
+
 │ └── supprimer.php
+
 ├── patient/ # Interface patient
+
 │ ├── dashboard.php
+
 │ ├── rdv/
+
 │ │ ├── index.php
+
 │ │ ├── ajouter.php
+
 │ │ ├── modifier.php
+
 │ │ └── annuler.php
+
 │ ├── avis/
+
 │ │ ├── index.php
+
 │ │ ├── ajouter.php
+
 │ │ ├── modifier.php
+
 │ │ └── supprimer.php
+
 │ ├── reclamations/
+
 │ │ ├── index.php
+
 │ │ ├── ajouter.php
+
 │ │ ├── modifier.php
+
 │ │ └── supprimer.php
+
 │ └── compte/
+
 │ ├── profil.php
+
 │ ├── modifier.php
+
 │ └── supprimer.php
+
 ├── config/ # Configuration
+
 │ └── database.php
+
 ├── includes/ # Fichiers inclus
+
 │ ├── header.php
+
 │ ├── sidebar.php
+
 │ └── footer.php
+
 ├── assets/ # Ressources statiques
+
 │ ├── css/
+
 │ │ └── style.css
+
 │ └── js/
+
 │ ├── main.js
+
 │ └── chart.js
+
 ├── sql/ # Scripts SQL
+
 │ └── database.sql
+
 ├── login.php
+
 ├── logout.php
+
 ├── test_bd.php
+
 └── README.md
 
 ---
